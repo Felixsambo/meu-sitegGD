@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Distributors Lda</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        header img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+        nav {
+            background-color: #4CAF50;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ff9900;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            flex: 1;
+        }
+        main img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .img-container {
+            max-width: 200px;
+            margin: auto;
+        }
+        .img-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .img-grid img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            width: 45%;
+        }
+        .services {
+            margin-top: 40px;
+            text-align: left;
+        }
+        .services h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .services h3 {
+            color: #ff9900;
+        }
+        .services-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .services .left, .services .right {
+            width: 48%;
+        }
+        .other-services, .highlight-projects {
+            margin-top: 40px;
+            text-align: left;
+        }
+        .other-services img, .highlight-projects img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+        .other-services h3, .highlight-projects h3 {
+            display: flex;
+            align-items: center;
+            color: #ff9900;
+        }
+        .service-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .service-item img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+        .highlight-projects h2 {
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 40px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .contacts {
+            margin-top: 20px;
+        }
+        .contacts p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px 0;
+        }
+        .contacts img {
+            max-width: 20px;
+            margin-right: 10px;
+        }
+        .email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .email img {
+            max-width: 20px;
+            margin-right: 10px;
+        }
+        .back-to-top {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-to-top:hover {
+            background-color: #ff9900;
+        }
+        .feedback {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .feedback img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        /* Popup Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .modal-content p {
+            font-size: 0.9em;
+        }
+        .modal-content img {
+            max-width: 15px;
+            margin-right: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="BOMBA.png" alt="Logotipo da General Distributors Lda">
+        <h1>General Distributors Lda</h1>
+    </header>
+
+    <nav>
+        <a href="#nossa-visao">Nossa Visão</a>
+        <a href="#nossos-servicos">Nossos Serviços</a>
+        <a href="#outros-servicos">Outros Serviços</a>
+        <a href="#projetos-destaque">Projetos Destaque</a>
+        <a href="#contatos" id="contact-link">Contatos</a>
+    </nav>
+
+    <main>
+        <h2>SOBRE A EMPRESA</h2>
+        <div class="img-container">
+            <img src="BOMBA.png" alt="Imagem de energia">
+        </div>
+        <p>A GENERAL DISTRIBUTORS LDA é uma empresa moçambicana de consultoria e engenharia que oferece serviços especializados nas áreas de energia e infraestrutura.</p>
+        <p>A empresa foi criada essencialmente para responder à crescente demanda de soluções na área de energias desde o fornecimento e montagem de Bombas de Abastecimento de Combustível, rede nacional e outras energias renováveis. Nosso conhecimento de mercado e competência técnica combinados ao forte compromisso com nossos clientes nos garantem oferecer serviços especializados com alto padrão de qualidade, desde a fase de estudos de viabilidade e concepção técnica, passando pela elaboração dos projetos de engenharia, gerenciamento e fiscalização da implantação, até a fase de operação do empreendimento.</p>
+        <h3 id="nossa-visao">Nossa Visão</h3>
+        <div class="img-container">
+            <img src="visao.png" alt="Imagem representando a visão da empresa">
+        </div>
+        <p>Ser reconhecida pela qualidade técnica, independência, comprometimento com o cliente e ambiente de trabalho cooperativo.</p>
+        <h3 id="nossa-missao">Nossa Missão</h3>
+        <p>Desenvolver e oferecer soluções customizadas de engenharia em um ambiente cooperativo e multidisciplinar, buscando sempre a primazia técnica na execução, agregando valor e aumentando a competitividade dos nossos clientes.</p>
+        <p>Orgulhamo-nos por participar no desenvolvimento do país e da comunidade pela qualidade de serviços prestados.</p>
+        
+        <div class="img-grid">
+            <img src="Screenshot 2024-05-30 144538.png" alt="Imagem 1">
+            <img src="Screenshot 2024-.05-30 145007.png" alt="Imagem 2">
+        </div>
+
+        <div class="feedback">
+            <img src="like.png" alt="Gosto">
+            <img src="dislike.png" alt="Não Gosto">
+        </div>
+
+        <div id="nossos-servicos" class="services">
+            <h2>NOSSOS SERVIÇOS</h2>
+            <div class="services-container">
+                <div class="left">
+                    <h3>Soluções</h3>
+                    <p>Desenvolvemos soluções concernentes ao fornecimento, montagem bem como manutenção de bombas de abastecimento de combustível e locais diversificados. Com equipe multidisciplinar capacitada na área de montagem de Bombas de Abastecimento de Combustível, geração e transmissão de energia, temos a expertise para auxiliar nossos clientes desde a concepção técnica inicial do empreendimento até o detalhamento final necessário para execução em obra. Sempre em contato com fornecedores e integradores, buscamos aliar as mais modernas soluções técnicas ao melhor custo-benefício no longo prazo.</p>
+                </div>
+                <div class="right">
+                    <h3>Projetos Especiais</h3>
+                    <p>Desenvolvemos projetos de engenharia específicos abrangendo geração distribuída, instalação de bombas de abastecimento de combustível, reuso de águas, dessalinização, eficiência energética, cogeração, geração de energia a partir de resíduos sólidos e biomassa. Os projetos são desenvolvidos por nossa equipe juntamente com empresas parceiras onde a GENERAL DISTRIBUTORS atua como integradora de soluções.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="outros-servicos" class="services">
+            <div class="services-container">
+                <div class="left">
+                    <h3>Auditoria Técnica</h3>
+                    <p>Oferecemos serviços de auditoria técnica independente, onde os diversos aspectos técnicos envolvidos são identificados e avaliados de forma integrada. Este serviço é oferecido não só para os aspectos relativos aos recursos energéticos, através da análise das medições anemométricas e solarimétricas e da estimativa da produção anual de energia, mas também na verificação das soluções de engenharia adotadas, através da análise crítica da infraestrutura civil e elétrica.</p>
+                </div>
+                <div class="right">
+                    <h3>Análise de Recursos</h3>
+                    <p>Estamos presentes desde os primeiros estudos de viabilidade até a operação comercial, assessorando na especificação dos sistemas de bomba de combustível, bem como na escolha do melhor local de sua instalação, sempre em concordância com as normas e melhores práticas de engenharia internacionais.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="other-services">
+            <h3><img src="conf.png" alt="Ícone de Configurações"> Outros Serviços</h3>
+            <div class="service-item">
+                <img src="fuel.png" alt="Imagem de Bomba de Combustível">
+                <p>FORNECIMENTO E MONTAGEM DE BOMBAS DE ABASTECIMENTO DE COMBUSTÍVEL FUEL DISPENSER RT-C 112</p>
+            </div>
+            <div class="service-item">
+                <img src="aaa.png" alt="Imagem de Bomba de Combustível">
+                <p>F LT-TD20A Automatic Nozzle (OPW type)<br>Inlet: 3/4", Outlet: 13/16"<br>Flow range: 0-60L/min</p>
+            </div>
+            <div class="service-item">
+                <img src="iii.png" alt="Imagem de Bomba de Combustível">
+                <p>Rt-C MODEL FUEL DISPENSER</p>
+            </div>
+        </div>
+
+        <div id="projetos-destaque" class="highlight-projects">
+            <h2>PROJETOS DESTAQUE</h2>
+            <div class="service-item">
+                <img src="sistema.png" alt="Imagem de Sistemas Solares">
+                <p>FORNECIMENTO E INSTALAÇÃO DE SISTEMAS SOLARES NOS DISTRITOS DE MAMDIMBA, METARICA, MAVAGO, MARUPA, ZINZE E LICHINGA NA PROVÍNCIA DE NIASSA.</p>
+            </div>
+            <div class="service-item">
+                <img src="ppp.png" alt="Imagem de Bombas de Combustível">
+                <p>INSTALAÇÃO DE DUAS BOMBAS DE ABASTECIMENTO DE COMBUSTÍVEL NOS DISTRITOS DE TAMBARA E MOSSURIZE NA PROVÍNCIA DE MANICA.</p>
+            </div>
+        </div>
+
+        <a href="#top" class="back-to-top">Home</a>
+    </main>
+
+    <footer>
+        <div class="contacts">
+            <p><img src="cell.png" alt="Ícone de telefone">(+258) 82 701 3013 | (+258) 84 456 8403</p>
+            <p>Av. Da Namaacha, N.492, Maputo - Moçambique</p>
+        </div>
+        <div class="email">
+            <p><img src="email.png" alt="Ícone de email">geral@gdenergies.co.mz</p>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contatos</h2>
+            <p><img src="cell.png" alt="Ícone de telefone"> (+258) 82 701 3013 | (+258) 84 456 8403</p>
+            <p><img src="email.png" alt="Ícone de email"> geral@gdenergies.co.mz</p>
+            <p><img src="local.png" alt="Ícone de endereço"> Av. Da Namaacha, N.492, Maputo - Moçambique</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Modal
+        var modal = document.getElementById("contactModal");
+        var btn = document.getElementById("contact-link");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
